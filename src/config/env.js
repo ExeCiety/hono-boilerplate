@@ -19,7 +19,10 @@ const env = {
     CORS_ORIGIN: process.env.CORS_ORIGIN || '*',
 
     // Rate Limiting
-    RATE_LIMIT_MAX: parseInt(process.env.RATE_LIMIT_MAX, 10) || 100,
+    RATE_LIMIT_MAX: (() => {
+        const val = parseInt(process.env.RATE_LIMIT_MAX, 10);
+        return isNaN(val) ? 100 : val;
+    })(),
     RATE_LIMIT_WINDOW_MS: parseInt(process.env.RATE_LIMIT_WINDOW_MS, 10) || 60000,
 
     // Helpers
