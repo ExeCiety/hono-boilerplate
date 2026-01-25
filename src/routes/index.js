@@ -6,6 +6,16 @@ import { success } from '@/utils/response.js';
 const routes = new Hono();
 
 /**
+ * Welcome route
+ * GET /
+ */
+routes.get('/', (c) => {
+    return c.json({
+        message: 'Welcome to Hono Boilerplate API',
+    });
+});
+
+/**
  * Health check endpoint
  * GET /health
  */
