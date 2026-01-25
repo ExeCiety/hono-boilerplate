@@ -26,10 +26,15 @@ setInterval(() => {
  * @param {number} options.windowMs - Time window in ms
  */
 export function rateLimit(options = {}) {
-    const max = options.max || env.RATE_LIMIT_MAX;
+    const max = options.max ?? env.RATE_LIMIT_MAX;
     const windowMs = options.windowMs || env.RATE_LIMIT_WINDOW_MS;
 
     return async (c, next) => {
+        // If max is 0, disable rate limiting
+        if (max === 0) {
+            return next();
+        }
+
         // Get client IP
         const ip = c.req.header('X-Forwarded-For')?.split(',')[0]?.trim()
             || c.req.header('X-Real-IP')
