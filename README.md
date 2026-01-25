@@ -194,39 +194,41 @@ Load testing with [k6](https://k6.io/) - 10 VUs for 60 seconds.
 
 ```
 scenarios: (100.00%) 1 scenario, 10 max VUs, 1m30s max duration (incl. graceful stop):
-         * default: 10 looping VUs for 1m0s (gracefulStop: 30s)
+              * default: 10 looping VUs for 1m0s (gracefulStop: 30s)
 
-█ TOTAL RESULTS
 
-  checks_total.......: 1783253 29720.852622/s
-  checks_succeeded...: 0.00%   0 out of 1783253
-  checks_failed......: 100.00% 1783253 out of 1783253
 
-  ✗ status 200
-    ↳  0% — ✓ 0 / ✗ 1783253
+  █ TOTAL RESULTS 
 
-  HTTP
-  http_req_duration....: avg=316.25µs min=38µs    med=191µs    max=33.34ms p(90)=772µs    p(95)=1.12ms
-  http_req_failed......: 100.00% 1783253 out of 1783253
-  http_reqs............: 1783253 29720.852622/s
+    checks_total.......: 1756389 29272.41819/s
+    checks_succeeded...: 100.00% 1756389 out of 1756389
+    checks_failed......: 0.00%   0 out of 1756389
 
-  EXECUTION
-  iteration_duration...: avg=334.08µs min=46.95µs med=208.04µs max=33.36ms p(90)=797.04µs p(95)=1.14ms
-  iterations...........: 1783253 29720.852622/s
-  vus..................: 10      min=10                 max=10
-  vus_max..............: 10      min=10                 max=10
+    ✓ status 200
 
-  NETWORK
-  data_received........: 1.7 GB  28 MB/s
-  data_sent............: 125 MB  2.1 MB/s
+    HTTP
+    http_req_duration..............: avg=319.06µs min=34µs    med=177µs    max=46.67ms p(90)=752µs    p(95)=1.12ms
+      { expected_response:true }...: avg=319.06µs min=34µs    med=177µs    max=46.67ms p(90)=752µs    p(95)=1.12ms
+    http_req_failed................: 0.00%   0 out of 1756389
+    http_reqs......................: 1756389 29272.41819/s
+
+    EXECUTION
+    iteration_duration.............: avg=338.88µs min=43.54µs med=194.95µs max=46.73ms p(90)=777.37µs p(95)=1.15ms
+    iterations.....................: 1756389 29272.41819/s
+    vus............................: 10      min=10           max=10
+    vus_max........................: 10      min=10           max=10
+
+    NETWORK
+    data_received..................: 1.2 GB  21 MB/s
+    data_sent......................: 123 MB  2.0 MB/s
 ```
 
 | Metric | Value |
 |--------|-------|
-| Requests/sec | **29,720** |
-| Avg Latency | 316.25µs |
+| Requests/sec | **29,272** |
+| Avg Latency | 319.06µs |
 | P95 Latency | 1.12ms |
-| Total Requests | 1,783,253 |
+| Total Requests | 1,756,389 |
 
 ## License
 
