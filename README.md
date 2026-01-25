@@ -230,6 +230,46 @@ scenarios: (100.00%) 1 scenario, 10 max VUs, 1m30s max duration (incl. graceful 
 | P95 Latency | 1.12ms |
 | Total Requests | 1,756,389 |
 
+### GET - /health
+
+```
+scenarios: (100.00%) 1 scenario, 10 max VUs, 1m30s max duration (incl. graceful stop):
+              * default: 10 looping VUs for 1m0s (gracefulStop: 30s)
+
+
+
+  █ TOTAL RESULTS 
+
+    checks_total.......: 845822  14096.920558/s
+    checks_succeeded...: 100.00% 845822 out of 845822
+    checks_failed......: 0.00%   0 out of 845822
+
+    ✓ status 200
+
+    HTTP
+    http_req_duration..............: avg=679.81µs min=167µs    med=583µs    max=42.47ms p(90)=1ms    p(95)=1.23ms
+      { expected_response:true }...: avg=679.81µs min=167µs    med=583µs    max=42.47ms p(90)=1ms    p(95)=1.23ms
+    http_req_failed................: 0.00%  0 out of 845822
+    http_reqs......................: 845822 14096.920558/s
+
+    EXECUTION
+    iteration_duration.............: avg=705.81µs min=177.37µs med=608.08µs max=43.73ms p(90)=1.03ms p(95)=1.26ms
+    iterations.....................: 845822 14096.920558/s
+    vus............................: 10     min=10          max=10
+    vus_max........................: 10     min=10          max=10
+
+    NETWORK
+    data_received..................: 677 MB 11 MB/s
+    data_sent......................: 64 MB  1.1 MB/s
+```
+
+| Metric | Value |
+|--------|-------|
+| Requests/sec | **14,096** |
+| Avg Latency | 679.81µs |
+| P95 Latency | 1.23ms |
+| Total Requests | 845,822 |
+
 ## License
 
 MIT
